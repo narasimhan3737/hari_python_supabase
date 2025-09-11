@@ -1,5 +1,8 @@
 import os
 import sys
+
+from df_convert.convert import dataframe_to_records
+
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import argparse
@@ -19,11 +22,6 @@ def add_or_override_team_id(df: pd.DataFrame, team_id: Optional[int]) -> pd.Data
     df = df.copy()
     df["team_id"] = team_id
     return df
-
-
-def dataframe_to_records(df: pd.DataFrame) -> List[Dict]:
-    # Convert NaN to None so they become NULL in the database
-    return df.where(pd.notnull(df), None).to_dict(orient="records")
 
 
 def insert_in_chunks(
