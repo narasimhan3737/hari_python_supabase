@@ -11,7 +11,7 @@ if __name__ == "__main__":
     data = {
         'run_id': 1,
         'source_name': 'test_video',
-        'match_id': 1,
+        'match_id': 4,
         'source_path': '/videos/match1/cam1.mp4',
         'length': timedelta(minutes=90, seconds=30).total_seconds()
     }
