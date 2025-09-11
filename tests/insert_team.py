@@ -7,13 +7,12 @@ from datetime import timedelta
 from db_insert.insert import insert_data
 if __name__ == "__main__":
     supabase = connect()
-    table='source_db'
+    table='team_db'
     data = {
-        'run_id': 1,
-        'source_name': 'test_video',
-        'match_id': 1,
-        'source_path': '/videos/match1/cam1.mp4',
-        'length': timedelta(minutes=90, seconds=30).total_seconds()
+        'team_name': 'Tottenham Girls',
+        'club_name': 'Tottenham',
+        'city': 'London',
+        'location': 'UK',
     }
     print("Inserting data")
-    insert_data(supabase, table, data)
+    insert_data(supabase, table,data)

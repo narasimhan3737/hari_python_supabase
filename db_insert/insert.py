@@ -1,4 +1,4 @@
-def insert_source(supabase, data: dict):
+def insert_data(supabase, db_table,data: dict):
     """
     Inserts a new record into the source_db table.
 
@@ -7,7 +7,7 @@ def insert_source(supabase, data: dict):
         data (dict): A dictionary containing the data to insert.
     """
     try:
-        response = supabase.table('source_db').insert(data).execute()
+        response = supabase.table(db_table).insert(data).execute()
 
         if response.data:
             print("Successfully inserted new source record.")
