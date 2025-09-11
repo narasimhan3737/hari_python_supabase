@@ -1,6 +1,10 @@
 from typing import Dict, List
 import pandas as pd
 
+def load_dataframe(csv_path: str) -> pd.DataFrame:
+    df = pd.read_csv(csv_path)
+    return df
+
 def dataframe_to_records(df: pd.DataFrame) -> List[Dict]:
     # Convert NaN to None so they become NULL in the database
     return df.where(pd.notnull(df), None).to_dict(orient="records")
@@ -40,10 +44,11 @@ def insert_df_data(supabase, pd, table_name, dry_run):
     if not records:
         print("No records to insert. Exiting")
         return None
-    totol_inserted = insert_in_chunks(
+    total_inserted = insert_in_chunks(
         supabase=supabase,
         table_name=table_name,
         records=records,
         chunk_size=0,
         dry_run=dry_run
     )
+    print(f"Done. Total rows processed: {total_inserted}")    

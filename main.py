@@ -5,7 +5,5 @@ from db_update.source import update_source
 
 if __name__ == "__main__":
     supabase = connect()
-    # data = insert_data(supabase,"test_table")
+    data = insert_data(supabase,"test_table")
 
-    update_data()
-    print(data)

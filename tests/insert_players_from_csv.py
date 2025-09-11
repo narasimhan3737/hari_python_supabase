@@ -1,7 +1,9 @@
 import os
 import sys
 
-from df_convert.convert import dataframe_to_records
+from db_insert.df_insert import dataframe_to_records
+
+
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
