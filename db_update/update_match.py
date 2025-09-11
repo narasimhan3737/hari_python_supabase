@@ -1,4 +1,4 @@
-def update_match(supabase,match_id: int, new_status: str, new_location: str):
+def update_match(supabase, match_id: int, new_status: str, new_location: str):
     """
     Updates the match_status and location of a specific match in the match_db table.
 
@@ -8,9 +8,12 @@ def update_match(supabase,match_id: int, new_status: str, new_location: str):
         new_location (str): The new location for the match.
     """
     try:
-        response = supabase.table('match_db').update(
-            {'match_status': new_status, 'location': new_location}
-        ).eq('match_id', match_id).execute()
+        response = (
+            supabase.table("match_db")
+            .update({"match_status": new_status, "location": new_location})
+            .eq("match_id", match_id)
+            .execute()
+        )
 
         # Check for errors in the response
         if response.data:

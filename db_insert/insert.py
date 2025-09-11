@@ -1,4 +1,4 @@
-def insert_data(supabase, db_table,data: dict):
+def insert_data(supabase, db_table, data: dict):
     """
     Inserts a new record into the source_db table.
 
